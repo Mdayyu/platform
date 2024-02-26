@@ -4,41 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Deskripsi Gunung Everest</title>
+   
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .text {
+            width: 45%;
+            margin-right: 10px;
+        }
+
+        .image {
+            width: 45%;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        h2, h3 {
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .text,
+            .image {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1 style= 'text-align:center;'> GUNUNG EVEREST </h1>
-    <p>Gunung Everest, juga dikenal sebagai Sagarmatha di Nepal dan 
-        Chomolungma di Tibet, adalah puncak tertinggi di dunia di atas 
-        permukaan laut. Terletak di Pegunungan Himalaya, rentang perbatasan
-        antara Nepal dan Tibet (wilayah otonomi Tiongkok), Everest memiliki ketinggian 
-        sekitar 8.848 meter (29.029 kaki) di atas permukaan laut.</p>
+        <p style="max-width: 800px; margin: 0 auto;"> 
+            Gunung Everest (bahasa Inggris: Mount Everest) adalah gunung tertinggi di dunia, 
+            terletak di perbatasan antara Nepal dan Tibet. Rabung puncaknya menandakan perbatasan tersebut, 
+            dengan puncaknya berada di wilayah Tibet. Di Nepal, gunung ini dikenal sebagai Sagarmatha (सगरमाथा, 
+            bahasa Sanskerta yang berarti "Kepala Langit"), sementara dalam bahasa Tibet disebut Chomolangma atau 
+            Qomolangma ("Bunda Semesta"), dieja dalam bahasa Tionghoa sebagai 珠穆朗瑪峰 (pinyin: Zhūmùlǎngmǎ Fēng).
+        </p>
+        <p style="max-width: 800px; margin: 0 auto;">
+            Nama bahasa Inggris "Mount Everest" diberikan oleh Sir Andrew Waugh, seorang surveyor jenderal India berkebangsaan 
+            Inggris, yang menghormati nama Sir George Everest, penerusnya. Puncak Everest juga merupakan salah satu dari tujuh 
+            puncak tertinggi di dunia.Ini adalah gambar Gunung Everest:
+
+        </p>
+   
 
 
-    <p>Ini adalah gambar Gunung Everest:</p>
+    <div style='text-align:center;'>
     <a href="https://id.wikipedia.org/wiki/Gunung_Everest#/media/Berkas:Mount_Everest_as_seen_from_Drukair2_PLW_edit_Cropped.jpg" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Mount_Everest_as_seen_from_Drukair2_PLW_edit_Cropped.jpg" alt="Gunung Everest" width="600">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Mount_Everest_as_seen_from_Drukair2_PLW_edit_Cropped.jpg" alt="Gunung Everest" width="800">
     </a>
+    </div>
 
-    <h2>Karakteristik Utama</h2>
+    <div class="container">
+        <div class="text">
+            <h2>Geografi</h2>
+                <p>Gunung Everest, juga dikenal sebagai Sagarmatha di Nepal dan Chomolungma di Tibet, 
+                adalah puncak tertinggi di dunia, terletak di Pegunungan Himalaya. Rentang perbatasannya 
+                membentang antara Nepal dan Tibet (wilayah otonomi Tiongkok). Dengan ketinggian sekitar 8.848 meter
+                (29.029 kaki) di atas permukaan laut, Gunung Everest terletak di dalam Pegunungan Himalaya,
+                yang merupakan rentang gunung tertinggi di dunia. Daerah sekitarnya merupakan rumah bagi beberapa 
+                ekosistem yang unik, termasuk hutan hujan subtropis, hutan pegunungan, padang rumput alpine, dan zona
+                batu terpapar es.</p>
+        </div>
+        <div class="image">
+        <img src="https://rumahpengetahuan.web.id/wp-content/uploads/Everest-660x330.jpg" alt="Gunung Everest" width="800">
+        </div>
+    </div>
+
+    <h2 style="max-width: 800px; margin: 0 auto;"> Karakteristik Utama</h2>
     <ul>
-        <li><strong>Ketinggian:</strong> 8.848 meter (29.029 kaki)</li>
-        <li><strong>Koordinat:</strong> 27°59'17"LU 86°55'31"BT </li>
-        <li><strong>Puncak Pertama Dicapai:</strong> 29 Mei 1953 oleh Sir Edmund Hellary 
+        <li style="max-width: 800px; margin: 0 auto;"><strong>Ketinggian:</strong> 8.848 meter (29.029 kaki)</li>
+        <li style="max-width: 800px; margin: 0 auto;"><strong>Koordinat:</strong> 27°59'17"LU 86°55'31"BT </li>
+        <li style="max-width: 800px; margin: 0 auto;"><strong>Lokasi:</strong>Terletak di Pegunungan Himalaya, di perbatasan antara Nepal dan Tibet (Cina)</li>
+        <li style="max-width: 800px; margin: 0 auto;"><strong>Bentuk:</strong>Mirip dengan piramida bersisi tiga</li>
+        <li style="max-width: 800px; margin: 0 auto;"><strong>Asal Usul:</strong> Gunung Everest terbentuk sekitar 60 juta tahun yang lalu akibat tabrakan lempeng tektonik India dengan Asia</li>
+        <li style="max-width: 800px; margin: 0 auto;"><strong>Puncak Pertama Dicapai:</strong> 29 Mei 1953 oleh Sir Edmund Hellary 
             dari Selandia Baru dan Tenzing Norgay Sherpa dari Nepal.</li>
-    </ul>
+            </ul>
   
-    <h2>Daya Tarik dan Tantangan</h2>
-    <p>Gunung Everest adalah tujuan utama bagi para pendaki gunung dan petualang 
+    <h2 style="max-width: 800px; margin: 0 auto;">Daya Tarik dan Tantangan</h2>
+    <p style="max-width: 800px; margin: 0 auto;">
+        Gunung Everest adalah tujuan utama bagi para pendaki gunung dan petualang 
         dari seluruh dunia. Pendakian ke puncaknya adalah prestasi yang membutuhkan
         persiapan fisik yang sangat baik, keterampilan teknis yang kuat, dan penyesuaian
         terhadap kondisi lingkungan yang keras, termasuk tekanan rendah oksigen, suhu ekstrem, 
         dan risiko bahaya alam seperti badai salju dan angin kencang.</p>
     
-    <h2>Peran Budaya</h2>
-    <p>Bagi masyarakat Nepal dan Tibet, Gunung Everest memiliki nilai spiritual dan 
-        budaya yang besar. Di Nepal, gunung ini dianggap sebagai tempat suci dan simbol nasional. 
-        Sementara itu, di Tibet, gunung ini dihormati sebagai bagian dari warisan budaya dan spiritual.</p>
+    <h2 style="max-width: 800px; margin: 0 auto;" >Peran Budaya</h2>
+    <p style="max-width: 800px; margin: 0 auto;">
+        Bagi masyarakat Nepal dan Tibet, Gunung Everest memiliki nilai spiritual dan budaya yang besar. Di Nepal,
+         gunung ini dianggap sebagai tempat suci dan simbol nasional yang dipuja dan dirayakan dalam berbagai 
+         upacara dan festival tradisional. Setiap tahun, ribuan peziarah dan pendaki mengunjungi gunung ini untuk 
+         mencari kedamaian dan menyampaikan doa-doa mereka. Sementara itu, di Tibet, gunung ini dihormati sebagai 
+         bagian dari warisan budaya dan spiritual yang kaya, yang menjadi sumber inspirasi bagi seni, sastra, dan 
+         praktik keagamaan lokal. Keindahan dan keangkeran Gunung Everest telah menarik minat para pelukis, penyair, 
+         dan pemikir spiritual selama berabad-abad.</p>
+    
+    
+    <h2 style="max-width: 800px; margin: 0 auto;">Fauna dan Flora</h2>
+    <p style="max-width: 800px; margin: 0 auto;">
+        Gunung Everest memiliki sedikit flora dan fauna asli, tetapi beberapa spesies telah beradaptasi dengan lingkungan 
+        yang keras di gunung tersebut. Berikut adalah beberapa contoh flora dan fauna yang ditemukan di Gunung Everest:
+        <div class="container">
+            <div class="text">
+                <h3 style=" max-width: 800px; margin: 0 auto;">Flora</h3>
+                    <ul style=" max-width: 800px; margin: 0 auto;">
+                        <li><strong>Lumut:</strong> Tumbuh di ketinggian sekitar 6.480 meter</li>
+                        <li><strong>Tanaman Alpine Cushion (Arenaria):</strong> Diketahui tumbuh di bawah ketinggian 5.500 meter</li>
+                        <li><strong>Vegetasi:</strong> Berdasarkan studi dari tahun 1993 hingga 2018, vegetasi meluas di kawasan Everest, dengan penemuan tanaman di area yang sebelumnya dianggap gundul</li>
+                    </ul>
+                </div>
+                <div class="image">
+                    <img src="https://www.mongabay.co.id/wp-content/uploads/2018/07/thylacospermum-tanaman-dataran-tinggi-newscientist.com_.jpg" alt="Rerumputan" width="400">
+                </div>
+            </div>
 
 
+        <div class="container">
+            <div class="text">
+                <h3 style=" max-width: 800px; margin: 0 auto;">Fauna</h3>
+                    <ul style=" max-width: 800px; margin: 0 auto;">
+                        <li><strong>Euophrys omnisuperstes (laba-laba peloncat hitam kecil):</strong> Ditemukan pada ketinggian 6.700 meter, mungkin menjadi hewan non-terkonfirmasi tertinggi</li>
+                        <li><strong>Bar-headed Goose:</strong> Terlihat terbang di tempat yang lebih tinggi di gunung</li>
+                        <li><strong>Chough:</strong> Terlihat terbang setinggi Kol Selatan di ketinggian 7.920 meter</li>
+                        <li><strong>Yak:</strong> Digunakan untuk mengangkut perlengkapan pendakian Gunung Everest</li>
+                        <li><strong>Himalayan Tahr:</strong> Hewan ini dapat ditemukan di wilayah tersebut dan terkadang dimakan oleh macan tutul salju</li>
+                        <li><strong>Himalayan Black Bear:</strong> Dapat ditemukan hingga ketinggian sekitar 4.300 meter</li>
+                        <li><strong>Red Panda:</strong> Juga ada di wilayah tersebut</li>
+                    </ul>
+            </div>
+            <div class="image">
+                <img src="https://cdn.idntimes.com/content-images/post/20230102/himalayan-goral-at-katra-4df366548eda769f1010946d38c153bd.jpg" alt="Himalayan goral" width="400">
+               </div>
+        </div>
+    </p>
+    
+    
 </body>
 </html>
