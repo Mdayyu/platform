@@ -8,9 +8,20 @@ body {
   background-color: #eff1f2;
   font-family: sans-serif;
 }
- 
-.content {
-  grid-area: content;
+
+.container .sidebar,
+.container .content,
+.container .footer {
+  padding: 1em;
+}
+.container {
+  font-size: 1.5em;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: 'sidebar' 'content' 'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
 }
  
 .sidebar {
@@ -22,6 +33,23 @@ body {
     rgba(110, 125, 253, 1)
   );
   justify-content: center;
+}
+.header {
+  text-align: center;
+  padding: 20px;
+}
+.profile {
+  text-align: center;
+  padding: 20px;
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+}
+hr {
+  width: 50%;
+  border: none;
+  border-top: 1px solid #000;
 }
  
 .footer {
@@ -72,9 +100,8 @@ nav li a:hover {
 }
  
 .hero {
-  max-width: 90 px;
-  margin: 0 auto;
   text-align: center;
+  margin-bottom: 30px;
 }
  
 .hero img {
@@ -90,7 +117,7 @@ nav li a:hover {
 .hero p {
   font-weight: 300;
   line-height: 1.3em;
-  color: #98abad;
+  color: #348e98;
 }
  
 .action-btn {
@@ -135,8 +162,8 @@ footer p {
 @media (min-width: 1040px) {
   .container {
     grid-template-areas: 'sidebar content' 'sidebar footer';
-    grid-template-rows: 1fr auto;
-    grid-template-columns: 300px 1f;
+    grid-template-rows: auto auto;
+    grid-template-columns: 300px 1fr;
   }
  
   nav ul {
@@ -147,7 +174,7 @@ footer p {
  
   .sidebar {
     background: linear-gradient(
-      rgba(200, 107, 142, 1),
+      rgb(87, 57, 164),
       rgba(218, 105, 250, 1),
       rgba(110, 125, 253, 1)
     );
@@ -181,4 +208,58 @@ footer p {
   footer ul li a img {
     width: 20%;
   }
+  .profile table {
+    width: 100%;
+    font-size: 0.4em; /* Mengurangi ukuran teks dalam tabel */
+    border-collapse: collapse;
+  }
+  
+  .profile table th,
+  .profile table td {
+    padding: 8px; /* Mengurangi padding agar ukuran tabel lebih kecil */
+    border: 1px solid #ddd;
+    
+  }
+  
+  .profile table th {
+    background-color: #538486; /* Warna latar belakang header tabel */
+    color: #fff;
+  }
+  
+  .profile table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang untuk baris genap */
+  }
+  .profile img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    width: 400px;
+  }
+  .footer img{
+    width: 50px;
+    height: 50px;
+  }
+  .footer li {
+    margin-bottom: 10px;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+
+}
+p{
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 1.5;
+  margin-top: 10px;
+}
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
 }
