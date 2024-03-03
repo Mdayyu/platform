@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale =1.0">
+        <title> Input Nama dan Jumla Pilihan</title>
+        <title>Tugas 4 - JavaScript</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #182f47;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    label {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="number"] {
+        flex: 1 1 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        flex: 1 1 100%;
+        padding: 10px 20px;
+        background-color: #12273e;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #options-container {
+        display: none;
+    }
+
+    #options-container label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #options-container input[type="text"] {
+        margin-bottom: 10px;
+    }
+
+    #options-container input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    #result {
+        display: none;
+        margin-top: 20px;
+    }
+
+    #result p {
+        margin-bottom: 10px;
+    }
+    </style>
+    </head>
+    <body>
+        <div class = "Container">
+            <h1>Input Data</h1>
+            <form id = "form">
+                <label for = "name">Nama :</label>
+                <input type = "text"id = "name"required>
+                <label for = "Jumlah">Jumlah Pilihan :</label>
+                <input type="number"id="Jumlah"min="1"required>
+                <input type="submit" value="Ok">
+            </form>
+            <div id="options-container"></div>
+            <div id="result"></div>
+        </div>
+        <script>
+            const form = document.getElementById('form');
+            const optionsContainer = document.getElementById('options-container');
+            const resultContainer = document.getElementById('result');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const jumlah = parseInt(document.getElementById('jumlah').value);
+                if (jumlah > 0) {
+                    generateOptions(jumlah);
+                }
+            });
+            
+            function generateOptions(jumlah) {
+                let html = '';
+                for (let i = 1; i <= jumlah; i++) {
+                    html += `<label for="option${i}">Pilihan ${i} :</label>`;
+                    html += `<input type="text" id="option${i}" required>`;
+                }
+                html += '<input type="submit" value="OK">';
+                optionsContainer.innerHTML = html;
+                optionsContainer.style.display = 'block';
+                form.removeEventListener('submit', arguments.callee);
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const options = [];
+                    for (let i = 1; i <= jumlah; i++) {
+                        options.push(document.getElementById(`option${i}`).value);
+                    }
+                    displayResult(options);
+                });
+            }
+            
+            function displayResult(options) {
+                let html = '';
+                for (let i = 0; i < options.length; i++) {
+                    html += `<p>Pilihan ${i + 1} : ${options[i]}</p>`;
+                }
+                html += '<input type="submit" value="OK">';
+                resultContainer.innerHTML = html;
+                optionsContainer.style.display = 'none';
+                resultContainer.style.display = 'block';
+                form.removeEventListener('submit', arguments.callee);
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const selectedOption = document.querySelector('input[type="radio"]:checked').value;
+                    const jumlah = parseInt(document.getElementById('jumlah').value);
+                    const optionsText = options.join(', ');
+                    const message = `Hallo, nama saya ${name}, saya mempunyai sejumlah ${jumlah} pilihan yaitu ${optionsText}, dan saya memilih ${selectedOption}`;
+                    alert(message);
+                });
+            }
+        </script>
+    </body>
+</html>
