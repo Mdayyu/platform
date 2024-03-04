@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 4 - JavaScript</title>
+    <link rel="stylesheet" href="Tugas4.css">
+</head>
+<body>
+    <header>
+        <h1>Tugas 4 - JavaScript</h1>
+        <p>Nama: Ni Made Ayu Sukmawardani</p>
+        <p>NIM: 225314021</p>
+        <img src="Pictures\AYU.jpg" alt="Foto Anda">
+    </header>
+    <main>
+        <form id="inputForm">
+            <label for="nama">Nama :</label>
+            <input type="text" id="nama" required><br><br>
+            <label for="jumlah">Jumlah Pilihan :</label>
+            <input type="number" id="jumlah" min="1" required><br><br>
+            <button type="button" onclick="generateOptions()">OK</button>
+        </form>
+        <div id="optionsContainer"></div>
+        <button id="submitButton" onclick="submitSelection()" style="display: none;">Submit</button>
+    </main>
+    <script src="Tugas.js"></script>
+</body>
+</html>
