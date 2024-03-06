@@ -1,3 +1,22 @@
+document.getElementById("okButton").addEventListener("click", function() {
+    var nama = document.getElementById("nama").textContent;
+    var jumlah = document.getElementById("nim").textContent;
+
+    var otherTabContent = "Nama: " + nama + "\nJumlah Pilihan: " + jumlah;
+    alert(otherTabContent);
+});
+
+
+
+function showForm() {
+    document.getElementById("clickHereButton").style.display = "none";
+    document.getElementById("inputForm").style.display = "block";
+}
+
+function submitSelection() {
+    // Lakukan tindakan saat formulir disubmit
+}
+
 function generateOptions() {
     var nama = document.getElementById('nama').value;
     var jumlah = parseInt(document.getElementById('jumlah').value);
