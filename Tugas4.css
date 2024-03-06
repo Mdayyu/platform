@@ -2,13 +2,31 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('https://images.tokopedia.net/img/JFrBQq/2022/6/22/215500cf-385a-43f9-b5c3-1dca1143b0e7.jpg');
+    background-size: cover;
+    position : relative;
+
+}
+.overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 50%;
+background: rgbh(0, 0, 0, 0.5);
+
 }
 
 header {
-    background-color: #333;
     color: white;
     padding: 20px;
-    text-align: center;
+    text-align: center; 
+    position: relative;
+    z-index: 1;
+}
+
+.left-align {
+    text-align: left; 
 }
 
 main {
