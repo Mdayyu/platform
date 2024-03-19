@@ -7,22 +7,52 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #826060 50%, #f0f0f0 50%);
+            margin: 0 auto; /* Merapatkan ke tengah */
+            max-width: 800px; /* Lebar maksimum body */
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
         }
 
         header {
-            background-color: #333;
+            background-color: #4d4242;
             color: #fff;
             padding: 20px;
             text-align: center;
+            margin-bottom: 20px;
+            /* Tambahkan efek gradient */
+            background: linear-gradient(135deg, #4d4242 0%, #333333 100%);
+            /* Tambahkan efek bayangan */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Tambahkan efek transisi */
+            transition: background-color 0.3s ease;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+
+        /* Tambahkan efek hover */
+        header:hover {
+            background-color: #665757;
+            transform: scale(1.05); /* Memperbesar header saat dihover */
+
+        }
+
 
         form {
             max-width: 400px;
             margin: 20px auto;
             padding: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+            border-radius: 10px; 
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            transition: box-shadow 0.3s ease; /* Animasi ketika bayangan berubah */
+        }
+
+        form:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal saat kursor berada di atas form */
         }
 
         label {
@@ -31,63 +61,168 @@
             font-weight: bold;
         }
 
+        /* Style untuk input */
         input[type="text"],
         input[type="number"] {
             width: calc(100% - 22px);
-            padding: 8px;
+            padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: #fff; /* Latar belakang putih */
+            transition: border-color 0.2s ease; 
         }
 
-        .option {
-            width: calc(100% - 22px);
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
+        /* Style untuk button */
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #333;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease; /* Animasi ketika tombol berubah warna */
+            background-color: #fff; /* Latar belakang putih */
         }
 
+        button:hover {
+            background-color: #555; /* Warna tombol menjadi sedikit lebih gelap saat kursor berada di atasnya */
+        }
+
+        /* Gaya untuk input */
+        .input-container {
+            background-color: #f9f9f9; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            border-radius: 5px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek depth */
+        }
+
+        /* Gaya untuk button */
+        .button-container {
+            background-color: #f9f9f9; 
+            padding: 10px 20px;
+            margin-top: 10px; 
+            border-radius: 5px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek depth */
+        }
+
+        .button-container button {
+            width: 100%; /* Agar tombol mengisi lebar container */
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+
         .error {
-            color: red;
+            color: rgb(37, 30, 30);
             margin-top: 5px;
         }
+
         .foto-placeholder {
-            width: 100px; 
-            height: 100px; 
-            border-radius: 50%; 
-            overflow: hidden; 
-            margin-top: 10px; 
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto; /* Tengahkan gambar */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
         }
 
         .foto-placeholder img {
             width: 100%;
-            height: auto; 
+            height: auto;
+            transition: transform 0.3s ease; /* Animasi ketika gambar dihover */
         }
+
+        .foto-placeholder:hover img {
+            transform: scale(1.05); /* Gambar sedikit membesar saat dihover */
+        }
+
+       /* Gaya untuk setiap pilihan dan teks di bawahnya */
+        .option-container {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gaya untuk teks di atas pilihan */
+        .option-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Gaya untuk radio button */
+        .option-container input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Gaya untuk tombol OK */
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container button {
+            padding: 12px 24px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #555;
+        }
+        #tampilanInputs {
+            margin-top: 20px; 
+            padding: 20px; 
+            background-color: #f9f9f9; 
+            border-radius: 10px; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            transition: box-shadow 0.3s ease; 
+        }
+
+        #tampilanInputs:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal saat kursor berada di atas */
+        }
+
+        #resultContainer {
+            margin-top: 20px; 
+            padding: 20px;
+            border-radius: 10px; 
+            background-color: #f9f9f9;
+            border: 1px solid #ccc; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            transition: box-shadow 0.3s ease; /* Efek transisi untuk bayangan */
+            color: #333; 
+        }
+
+        #resultContainer:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal saat kursor berada di atas */
+            color: #555; 
+        }
+
+
 
     </style>
 </head>
 <body>
     <header>
-        <h1>Selamat Datang</h1>
+        <h1>Selamat Datang Kalian Semua</h1>
         <p>Ni Made Ayu Sukmawardani</p>
         <p>225314021</p>
         <div class="foto-placeholder">
             <img src="https://i.pinimg.com/564x/90/08/81/90088133f93e1c77b70e38d255e70a05.jpg" alt="Foto Anda">
         </div>
-        
     </header>
     
-
     <form id="inputForm" onsubmit="return false;">
         <label for="nama">Nama:</label>
         <input type="text" id="nama" required>
@@ -101,10 +236,8 @@
     </form>
     <div id="errorMessages" class="error"></div>
     <div id="tampilanInputs"></div>
+    <div id="resultContainer"></div>
     
-
-    <div id="finalOutput"></div>
-
     <script>
         var data = [];
         var radio = [];
@@ -156,9 +289,11 @@
                 input[i - 1].type = "text";
                 input[i - 1].name = "teksTampilan" + i;
 
-                tampilanInputs.appendChild(label);
-                tampilanInputs.appendChild(input[i - 1]);
-                tampilanInputs.appendChild(document.createElement("br"));
+                var optionContainer = document.createElement("div"); // Kontainer untuk setiap pilihan
+                optionContainer.classList.add("option-container");
+                optionContainer.appendChild(label);
+                optionContainer.appendChild(input[i - 1]);
+                tampilanInputs.appendChild(optionContainer);
             }
 
             var button = document.createElement("button");
@@ -171,23 +306,23 @@
             tampilanInputs.appendChild(document.createElement("br"));
 
             document.getElementById("buttonOK").addEventListener("click", function (e) {
-            var errorMessages = document.getElementById("errorMessages");
-            errorMessages.innerHTML = ""; // Kosongkan pesan kesalahan sebelum validasi
+                var errorMessages = document.getElementById("errorMessages");
+                errorMessages.innerHTML = ""; // Kosongkan pesan kesalahan sebelum validasi
 
-            // Validasi setiap input pilihan tidak kosong
-            for (var i = 0; i < input.length; i++) {
-                if (input[i].value.trim() === "") {
-                    var errorMessage = document.createElement("div");
-                    errorMessage.textContent = "Pilihan " + (i + 1) + " tidak boleh kosong. Silakan isi kembali.";
-                    errorMessages.appendChild(errorMessage);
-                    return;
+                // Validasi setiap input pilihan tidak kosong
+                for (var i = 0; i < input.length; i++) {
+                    if (input[i].value.trim() === "") {
+                        var errorMessage = document.createElement("div");
+                        errorMessage.textContent = "Pilihan " + (i + 1) + " tidak boleh kosong. Silakan isi kembali.";
+                        errorMessages.appendChild(errorMessage);
+                        return;
+                    }
                 }
-            }
 
-            // Jika semua input pilihan diisi, lanjutkan dengan membuat radio button
-            for (var i = 1; i <= jumlah; i++) {
-                data[i - 1] = input[i - 1].value;
-            }
+                // Jika semua input pilihan diisi, lanjutkan dengan membuat radio button
+                for (var i = 1; i <= jumlah; i++) {
+                    data[i - 1] = input[i - 1].value;
+                }
 
                 generateRadio();
                 this.remove();
@@ -202,6 +337,7 @@
             // Label untuk teks di atas pilihan
             var labelText = document.createElement("label");
             labelText.textContent = "Pilihlah Salah Satu: ";
+            labelText.classList.add("option-label"); // Tambahkan kelas untuk gaya label
             tampilanInputs.appendChild(labelText);
 
             for (var i = 0; i < data.length; i++) {
@@ -214,7 +350,6 @@
                 radioInput.id = "Radio" + (i + 1);
                 label.appendChild(radioInput);
 
-                
                 var spanOption = document.createElement("span");
                 spanOption.textContent = data[i];
                 label.appendChild(spanOption);
@@ -222,8 +357,6 @@
                 label.setAttribute("for", "Radio" + (i + 1));
                 tampilanInputs.appendChild(label);
             }
-
-
 
             for (var i = data.length + 1; i <= jumlah; i++) {
                 label = document.createElement("label");
@@ -250,46 +383,81 @@
                 });
             }
 
-            var button = document.createElement("button");
-            button.name = "buttonLast";
-            button.textContent = "OK";
-            button.id = "buttonLast";
-            tampilanInputs.appendChild(button);
+            var buttonLast = document.createElement("button");
+            buttonLast.name = "buttonLast";
+            buttonLast.textContent = "OK";
+            buttonLast.id = "buttonLast";
+            tampilanInputs.appendChild(buttonLast);
             tampilanInputs.appendChild(document.createElement("br"));
 
             document.getElementById("buttonLast").addEventListener("click", function (e) {
+                var selectedOption = document.querySelector('input[name="teksTampilan"]:checked');
+
+                if (!selectedOption) {
+                    var errorMessages = document.getElementById("errorMessages");
+                    errorMessages.textContent = "Silakan pilih salah satu opsi.";
+                    return; //Keluar dari fungsi jika tidak ada yang dipilih
+                } else {
+                    var errorMessages = document.getElementById("errorMessages");
+                    errorMessages.textContent = ""; // Kosongkan pesan error jika opsi sudah dipilih
+                }
+
                 showResult();
-                this.remove();
+                this.remove(); // Hapus tombol setelah proses selesai
             });
         }
-
         function showResult() {
-            var nama = document.getElementById("nama").value;
-            var jumlah = document.getElementById("jumlah").value;
-            var finalOutput = document.getElementById("finalOutput");
-            var pilihanTexts = document.getElementsByName("teksTampilan");
-            var selectedOption;
+    // Menghapus semua konten di atas hasil
+    var inputForm = document.getElementById("inputForm");
+    inputForm.style.display = "none"; // Menyembunyikan inputForm
 
-            for (var i = 0; i < pilihanTexts.length; i++) {
-                if (pilihanTexts[i].checked) {
-                    selectedOption = pilihanTexts[i].nextSibling.textContent;
-                    break;
-                }
-            }
+    var errorMessages = document.getElementById("errorMessages");
+    errorMessages.style.display = "none"; // Menyembunyikan errorMessages
 
-            finalOutput.innerHTML = "Hallo, nama saya " + nama + ", saya mempunyai sejumlah " + jumlah + " pilihan yaitu: ";
+    var tampilanInputs = document.getElementById("tampilanInputs");
+    tampilanInputs.style.display = "none"; // Menyembunyikan tampilanInputs
 
-            var pilihanList = [];
-            for (var i = 0; i < data.length; i++) {
-                pilihanList.push(data[i]);
-            }
+    // Menghapus semua elemen anak dari resultContainer
+    var resultContainer = document.getElementById("resultContainer");
+    while (resultContainer.firstChild) {
+        resultContainer.removeChild(resultContainer.firstChild);
+    }
 
-            if (pilihanList.length > 0) {
-                finalOutput.innerHTML += pilihanList.join(", ");
-            }
+    // Menampilkan hasil final
+    var nama = document.getElementById("nama").value;
+    var jumlah = document.getElementById("jumlah").value;
+    var pilihanTexts = document.getElementsByName("teksTampilan");
+    var selectedOption;
 
-            finalOutput.innerHTML += ", dan saya memilih " + selectedOption + ".";
+    for (var i = 0; i < pilihanTexts.length; i++) {
+        if (pilihanTexts[i].checked) {
+            selectedOption = pilihanTexts[i].nextSibling.textContent;
+            break;
         }
-</script>
+    }
+
+    var finalOutput = document.createElement("div");
+    finalOutput.id = "finalOutput";
+    finalOutput.innerHTML = "Hallo, nama saya " + nama + ", saya mempunyai sejumlah " + jumlah + " pilihan yaitu: ";
+
+    var pilihanList = [];
+    for (var i = 0; i < data.length; i++) {
+        pilihanList.push(data[i]);
+    }
+
+    if (pilihanList.length > 0) {
+        finalOutput.innerHTML += pilihanList.join(", ");
+    }
+
+    finalOutput.innerHTML += ", dan saya memilih " + selectedOption + ".";
+
+    // Menambahkan hasil final ke dalam resultContainer
+    resultContainer.appendChild(finalOutput);
+}
+
+
+    </script>
 </body>
 </html>
+
+
