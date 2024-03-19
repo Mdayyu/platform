@@ -78,7 +78,7 @@
 </head>
 <body>
     <header>
-        <h1>Tugas 4 - JavaScript</h1>
+        <h1>Selamat Datang</h1>
         <p>Ni Made Ayu Sukmawardani</p>
         <p>225314021</p>
         <div class="foto-placeholder">
@@ -86,6 +86,7 @@
         </div>
         
     </header>
+    
 
     <form id="inputForm" onsubmit="return false;">
         <label for="nama">Nama:</label>
@@ -98,8 +99,9 @@
 
         <button onclick="generateOptions()">OK</button>
     </form>
-
+    <div id="errorMessages" class="error"></div>
     <div id="tampilanInputs"></div>
+    
 
     <div id="finalOutput"></div>
 
@@ -109,12 +111,44 @@
         var pilihanElement;
 
         function generateOptions() {
+            var nama = document.getElementById("nama").value;
             var jumlah = parseInt(document.getElementById("jumlah").value);
+            var nameError = document.getElementById("nameError");
+            var quantityError = document.getElementById("quantityError");
             var tampilanInputs = document.getElementById("tampilanInputs");
+
+            
+            // Validasi input nama tidak kosong
+            if (nama.trim() === "") {
+                nameError.textContent = "Nama tidak boleh kosong";
+                return;
+            } else if (!/^[a-zA-Z\s]+$/.test(nama)) {
+                nameError.textContent = "Nama hanya boleh berisi huruf";
+                return;
+            } else {
+                nameError.textContent = "";
+            }
+
+            // Validasi jumlah pilihan lebih besar dari 0
+            if (jumlah <= 0 || isNaN(jumlah)) {
+                quantityError.textContent = "Jumlah pilihan harus lebih besar dari 0";
+                return;
+            } else {
+                quantityError.textContent = "";
+            }
+
+            // Validasi setiap pilihan tidak kosong
+            var inputs = tampilanInputs.querySelectorAll('input[type="text"]');
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value.trim() === "") {
+                    alert("Pilihan " + (i + 1) + " tidak boleh kosong");
+                    return;
+                }
+            }
             tampilanInputs.innerHTML = "";
 
-            var input = [];
 
+            var input = [];
             for (var i = 1; i <= jumlah; i++) {
                 var label = document.createElement("label");
                 label.textContent = "Pilihan " + i + ":";
@@ -137,9 +171,23 @@
             tampilanInputs.appendChild(document.createElement("br"));
 
             document.getElementById("buttonOK").addEventListener("click", function (e) {
-                for (var i = 1; i <= jumlah; i++) {
-                    data[i - 1] = input[i - 1].value;
+            var errorMessages = document.getElementById("errorMessages");
+            errorMessages.innerHTML = ""; // Kosongkan pesan kesalahan sebelum validasi
+
+            // Validasi setiap input pilihan tidak kosong
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].value.trim() === "") {
+                    var errorMessage = document.createElement("div");
+                    errorMessage.textContent = "Pilihan " + (i + 1) + " tidak boleh kosong. Silakan isi kembali.";
+                    errorMessages.appendChild(errorMessage);
+                    return;
                 }
+            }
+
+            // Jika semua input pilihan diisi, lanjutkan dengan membuat radio button
+            for (var i = 1; i <= jumlah; i++) {
+                data[i - 1] = input[i - 1].value;
+            }
 
                 generateRadio();
                 this.remove();
@@ -151,19 +199,35 @@
             var tampilanInputs = document.getElementById("tampilanInputs");
             var label;
 
-            // Menampilkan pilihan yang dimasukkan pengguna sebelumnya
+            // Label untuk teks di atas pilihan
+            var labelText = document.createElement("label");
+            labelText.textContent = "Pilihlah Salah Satu: ";
+            tampilanInputs.appendChild(labelText);
+
             for (var i = 0; i < data.length; i++) {
+                // Label untuk setiap pilihan
                 label = document.createElement("label");
-                label.textContent = "Pilihan: ";
-                label.innerHTML = '<input type="radio" name="teksTampilan" id="Radio' + (i + 1) + '">' + data[i];
+
+                var radioInput = document.createElement("input");
+                radioInput.type = "radio";
+                radioInput.name = "teksTampilan";
+                radioInput.id = "Radio" + (i + 1);
+                label.appendChild(radioInput);
+
+                
+                var spanOption = document.createElement("span");
+                spanOption.textContent = data[i];
+                label.appendChild(spanOption);
+
                 label.setAttribute("for", "Radio" + (i + 1));
                 tampilanInputs.appendChild(label);
             }
 
-            // Menampilkan pilihan baru yang dimasukkan pengguna
+
+
             for (var i = data.length + 1; i <= jumlah; i++) {
                 label = document.createElement("label");
-                label.textContent = "Pilihan " + i + ": " + data[i - 1]; // Menampilkan pilihan yang diketikkan pengguna sebelumnya
+                label.textContent = "Pilihan " + i + ": " + data[i - 1]; 
                 tampilanInputs.appendChild(label);
 
                 label = document.createElement("label");
@@ -172,7 +236,6 @@
                 tampilanInputs.appendChild(label);
             }
 
-            // Memperbarui array radio
             radio = [];
             for (var i = 1; i <= jumlah; i++) {
                 radio.push(document.getElementById("Radio" + i));
@@ -187,7 +250,6 @@
                 });
             }
 
-            // Menambahkan button OK
             var button = document.createElement("button");
             button.name = "buttonLast";
             button.textContent = "OK";
@@ -195,7 +257,6 @@
             tampilanInputs.appendChild(button);
             tampilanInputs.appendChild(document.createElement("br"));
 
-            // Menambahkan event listener untuk button OK
             document.getElementById("buttonLast").addEventListener("click", function (e) {
                 showResult();
                 this.remove();
