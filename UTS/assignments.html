@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mdayyu UTS Platform</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+     body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #5b97a7 50%, #f0f0f0 50%);
+            margin: 0 auto; /* Merapatkan ke tengah */
+            max-width: 800px; /* Lebar maksimum body */
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+        }
+
+        
+        header {
+            background-color: #4d4242;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            /* Tambahkan efek gradient */
+            background: linear-gradient(135deg, #4d4242 0%, #333333 100%);
+            /* Tambahkan efek bayangan */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Tambahkan efek transisi */
+            transition: background-color 0.3s ease;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Tambahkan efek hover */
+        header:hover {
+            background-color: #665757;
+            transform: scale(1.05); /* Memperbesar header saat dihover */
+
+        }
+
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px; 
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            transition: box-shadow 0.3s ease; /* Animasi ketika bayangan berubah */
+        }
+
+        form:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal saat kursor berada di atas form */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Style untuk input */
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff; /* Latar belakang putih */
+            transition: border-color 0.2s ease; 
+        }
+
+        /* Style untuk button */
+        button {
+            padding: 12px 24px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Animasi ketika tombol berubah warna */
+        }
+
+        button:hover {
+            background-color: #555; /* Warna tombol menjadi sedikit lebih gelap saat kursor berada di atasnya */
+        }
+
+        /* Gaya untuk input */
+        .input-container {
+            background-color: #f9f9f9; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            border-radius: 5px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek depth */
+        }
+
+        /* Gaya untuk button */
+        .button-container {
+            background-color: #f9f9f9; 
+            padding: 10px 20px;
+            margin-top: 10px; 
+            border-radius: 5px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek depth */
+        }
+
+        .button-container button {
+            width: 100%; /* Agar tombol mengisi lebar container */
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+
+        .error {
+            color: rgb(37, 30, 30);
+            margin-top: 5px;
+        }
+
+        .foto-placeholder {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto; /* Tengahkan gambar */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+        }
+
+        .foto-placeholder img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease; /* Animasi ketika gambar dihover */
+        }
+
+        .foto-placeholder:hover img {
+            transform: scale(1.05); /* Gambar sedikit membesar saat dihover */
+        }
+
+       /* Gaya untuk setiap pilihan dan teks di bawahnya */
+        .option-container {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gaya untuk teks di atas pilihan */
+        .option-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Gaya untuk radio button */
+        .option-container input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Gaya untuk tombol OK */
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container button {
+            padding: 12px 24px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #555;
+        }
+        #tampilanInputs {
+            margin-top: 20px; 
+            padding: 20px; 
+            background-color: #f9f9f9; 
+            border-radius: 10px; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            transition: box-shadow 0.3s ease; 
+        }
+
+        #tampilanInputs:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal saat kursor berada di atas */
+        }
+
+        #resultContainer {
+            margin-top: 20px; 
+            padding: 20px;
+            border-radius: 10px; 
+            background-color: #f9f9f9;
+            border: 1px solid #ccc; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            transition: box-shadow 0.3s ease; /* Efek transisi untuk bayangan */
+            color: #333; 
+        }
+
+        #resultContainer:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal saat kursor berada di atas */
+            color: #555; 
+        }
+        /* Gaya untuk judul */
+        .judul-nama {
+            text-align: center; /* Tengahkan judul */
+            margin-top: 50px;
+            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            color: #59616b; /* Warna teks sesuai yang diinginkan */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Gaya untuk navbar */
+        .navbar {
+            background-color: #333; /* Warna latar belakang navbar */
+        }
+
+        .navbar .navbar-brand,
+        .navbar .navbar-nav .nav-link {
+            color: #fff; /* Warna teks putih */
+        }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: #fff; /* Warna teks putih saat dihover */
+            background-color: #555; /* Warna latar belakang saat dihover */
+        }
+
+  </style>
+</head>
+<body>
+    <h1 class="judul-nama"> S E L A M A T  D A T A N G</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Project</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/UTS/Home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/UTS/AboutMe.html">About Me</a>
+            </li>
+            <li class="nav-item"><a class="nav-link"  href="/UTS/Stories.html">Stories</a></li>
+            <li class="nav-item"><a class="nav-link" href="/UTS/Education.html">Education</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/UTS/assignments.html">Assignments</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+        <form id="inputForm" onsubmit="return false;">
+            <div class="input-container">
+                <label for="nama">Nama Depan:</label>
+                <input type="text" id="nama" required>
+                <div id="firstNameError" class="error"></div>
+            </div>
+            <div class="input-container">
+                <label for="lastName">Nama Belakang:</label>
+                <input type="text" id="lastName" required>
+                <div id="lastNameError" class="error"></div>
+            </div>
+            <div class="input-container">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <div id="emailError" class="error"></div>
+            </div>
+            <div class="input-container">
+                <label for="jumlah">Jumlah Pilihan Hobi:</label>
+                <input type="number" id="jumlah" min="1" required>
+                <div id="quantityError" class="error"></div>
+            </div>
+            <div class="button-container">
+                <button onclick="generateOptions()">OK</button>
+            </div>
+        </form>
+        <div id="errorMessages" class="error"></div>
+        <div id="tampilanInputs"></div>
+        <div id="resultContainer"></div>
+        
+        <script>
+            var data = [];
+            var checkbox = [];
+    
+            // Fungsi untuk validasi email
+            function validateEmail(email) {
+                var re = /\S+@\S+\.\S+/;
+                return re.test(email);
+            }
+    
+            // Fungsi untuk menghasilkan opsi
+            function generateOptions() {
+                var firstName = document.getElementById("nama").value.trim();
+                var lastName = document.getElementById("lastName").value.trim();
+                var email = document.getElementById("email").value.trim();
+                var jumlah = parseInt(document.getElementById("jumlah").value);
+                var firstNameError = document.getElementById("firstNameError");
+                var lastNameError = document.getElementById("lastNameError");
+                var emailError = document.getElementById("emailError");
+                var quantityError = document.getElementById("quantityError");
+                var tampilanInputs = document.getElementById("tampilanInputs");
+    
+                // Validasi input nama depan tidak kosong
+                if (firstName === "") {
+                    firstNameError.textContent = "Nama depan tidak boleh kosong";
+                    return;
+                } else if (!/^[a-zA-Z\s]+$/.test(firstName)) {
+                    firstNameError.textContent = "Nama depan hanya boleh berisi huruf";
+                    return;
+                } else {
+                    firstNameError.textContent = "";
+                }
+    
+                // Validasi input nama belakang tidak kosong
+                if (lastName === "") {
+                    lastNameError.textContent = "Nama belakang tidak boleh kosong";
+                    return;
+                } else if (!/^[a-zA-Z\s]+$/.test(lastName)) {
+                    lastNameError.textContent = "Nama belakang hanya boleh berisi huruf";
+                    return;
+                } else {
+                    lastNameError.textContent = "";
+                }
+    
+                // Validasi input email tidak kosong dan sesuai format
+                if (email === "") {
+                    emailError.textContent = "Email tidak boleh kosong";
+                    return;
+                } else if (!validateEmail(email)) {
+                    emailError.textContent = "Format email tidak valid";
+                    return;
+                } else {
+                    emailError.textContent = "";
+                }
+    
+                // Validasi jumlah pilihan lebih besar dari 0
+                if (jumlah <= 0 || isNaN(jumlah)) {
+                    quantityError.textContent = "Jumlah pilihan harus lebih besar dari 0";
+                    return;
+                } else {
+                    quantityError.textContent = "";
+                }
+    
+                tampilanInputs.innerHTML = "";
+    
+                var input = [];
+                for (var i = 1; i <= jumlah; i++) {
+                    var label = document.createElement("label");
+                    label.textContent = "Pilihan Hobi " + i + ":";
+                    input[i - 1] = document.createElement("input");
+                    input[i - 1].type = "text";
+                    input[i - 1].name = "teksTampilan" + i;
+    
+                    var optionContainer = document.createElement("div"); // Kontainer untuk setiap pilihan
+                    optionContainer.classList.add("option-container");
+                    optionContainer.appendChild(label);
+                    optionContainer.appendChild(input[i - 1]);
+                    tampilanInputs.appendChild(optionContainer);
+                }
+    
+                var button = document.createElement("button");
+                button.type = "button";
+                button.id = "buttonOK";
+                button.textContent = "OK";
+    
+                tampilanInputs.appendChild(button);
+                tampilanInputs.appendChild(document.createElement("br"));
+                tampilanInputs.appendChild(document.createElement("br"));
+    
+                document.getElementById("buttonOK").addEventListener("click", function (e) {
+                    var errorMessages = document.getElementById("errorMessages");
+                    errorMessages.innerHTML = ""; // Kosongkan pesan kesalahan sebelum validasi
+    
+                    // Validasi setiap input pilihan tidak kosong
+                for (var i = 0; i < input.length; i++) {
+                if (input[i].value.trim() === "") {
+                var errorMessage = document.createElement("div");
+                errorMessage.textContent = "Pilihan " + (i + 1) + " tidak boleh kosong. Silakan isi kembali.";
+                errorMessages.appendChild(errorMessage);
+                return;
+                }
+                }
+                            // Jika semua input pilihan diisi, lanjutkan dengan membuat checkbox
+            for (var i = 1; i <= jumlah; i++) {
+                data[i - 1] = input[i - 1].value;
+            }
+
+            generateCheckboxes();
+            this.remove();
+        });
+    }
+
+    // Fungsi untuk menghasilkan checkbox
+    function generateCheckboxes() {
+        var jumlah = parseInt(document.getElementById("jumlah").value);
+        var tampilanInputs = document.getElementById("tampilanInputs");
+        var label;
+
+        // Label untuk teks di atas pilihan
+        var labelText = document.createElement("label");
+        labelText.textContent = "Pilihlah Salah Satu atau Lebih: ";
+        labelText.classList.add("option-label"); // Tambahkan kelas untuk gaya label
+        tampilanInputs.appendChild(labelText);
+
+        for (var i = 0; i < data.length; i++) {
+            // Label untuk setiap pilihan
+            label = document.createElement("label");
+
+            var checkboxInput = document.createElement("input");
+            checkboxInput.type = "checkbox";
+            checkboxInput.name = "checkboxTampilan";
+            checkboxInput.value = data[i];
+            label.appendChild(checkboxInput);
+
+            var spanOption = document.createElement("span");
+            spanOption.textContent = data[i];
+            label.appendChild(spanOption);
+
+            tampilanInputs.appendChild(label);
+        }
+
+        var buttonLast = document.createElement("button");
+        buttonLast.name = "buttonLast";
+        buttonLast.textContent = "OK";
+        buttonLast.id = "buttonLast";
+        tampilanInputs.appendChild(buttonLast);
+        tampilanInputs.appendChild(document.createElement("br"));
+
+        document.getElementById("buttonLast").addEventListener("click", function (e) {
+            var checkedOptions = document.querySelectorAll('input[name="checkboxTampilan"]:checked');
+
+            if (checkedOptions.length === 0) {
+                var errorMessages = document.getElementById("errorMessages");
+                errorMessages.textContent = "Silakan pilih setidaknya satu pilihan.";
+                return; // Keluar dari fungsi jika tidak ada yang dipilih
+            } else {
+                var errorMessages = document.getElementById("errorMessages");
+                errorMessages.textContent = ""; // Kosongkan pesan error jika ada pilihan yang dipilih
+            }
+
+            showResult();
+            this.remove(); // Hapus tombol setelah proses selesai
+        });
+    }
+
+  // Fungsi untuk menampilkan hasil akhir
+function showResult() {
+    // Menghapus semua konten di atas hasil
+    var inputForm = document.getElementById("inputForm");
+    inputForm.style.display = "none"; // Menyembunyikan inputForm
+
+    var errorMessages = document.getElementById("errorMessages");
+    errorMessages.style.display = "none"; // Menyembunyikan errorMessages
+
+    var tampilanInputs = document.getElementById("tampilanInputs");
+    tampilanInputs.style.display = "none"; // Menyembunyikan tampilanInputs
+
+    // Menghapus semua elemen anak dari resultContainer
+    var resultContainer = document.getElementById("resultContainer");
+    while (resultContainer.firstChild) {
+        resultContainer.removeChild(resultContainer.firstChild);
+    }
+
+    // Menampilkan hasil final
+    var firstName = document.getElementById("nama").value.trim();
+    var lastName = document.getElementById("lastName").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var jumlah = document.getElementById("jumlah").value;
+    var checkedOptions = document.querySelectorAll('input[name="checkboxTampilan"]:checked');
+    var selectedOptions = [];
+
+    for (var i = 0; i < checkedOptions.length; i++) {
+        selectedOptions.push(checkedOptions[i].value);
+    }
+
+    var finalOutput = document.createElement("div");
+    finalOutput.id = "finalOutput";
+    finalOutput.innerHTML = "Hallo, nama saya " + firstName + " " + lastName + ", dengan email " + email + ", saya mempunyai sejumlah " + jumlah + " pilihan hobi yaitu: " + selectedOptions.join(", ") + ", dan saya menyukai " + selectedOptions.join(", ") + ".";
+
+    // Menambahkan hasil final ke dalam resultContainer
+    resultContainer.appendChild(finalOutput);
+}
+
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

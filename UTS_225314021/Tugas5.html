@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decorative Elements</title>
+  <style>
+    /* Gradient Background */
+    body {
+      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+      /* Atau */
+      /* background: radial-gradient(circle, #ff7e5f, #feb47b); */
+    }
+
+    /* Background Image */
+    .background-image {
+      background-image: url('path/to/image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Shape Elements */
+    .shape {
+      width: 100px;
+      height: 100px;
+      background-color: #695553; /* Atau warna lain */
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    /* Animations */
+    .animated-element {
+      animation: bounce 1s infinite alternate; /* Contoh animasi */
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Gradient Background -->
+  <h1>Gradient Background</h1>
+
+  <!-- Background Image -->
+  <div class="background-image">
+    <h2>Background Image</h2>
+  </div>
+
+  <!-- Shape Elements -->
+  <div class="shape"></div>
+
+  <!-- Animations -->
+  <div class="animated-element">
+    <h3>Animated Element</h3>
+  </div>
+</body>
+</html>
