@@ -82,6 +82,7 @@ if(isset($_POST["login"])){
                 <label for="remember">Remember :</label>
             </li>
             <li>
+                <button type="submit" name="registrasi">registrasi</button>
                 <button type="submit" name="login">Login</button>
             </li>
         </ul>
